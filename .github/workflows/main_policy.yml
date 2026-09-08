@@ -15,3 +15,10 @@ jobs:
                 echo "Actual source branch: ${{ github.head_ref }}"
                 exit 1
             fi
+
+# Assumes following Github ruleset:
+# Target branch: main
+# Restrict deletions
+# Require a pull request before merging
+# Require status checks to pass
+# Block force pushes
