@@ -2,9 +2,17 @@ name: CI
 
 on:
   push:
-    branches: ["**"]
+    branches:
+      - main  # defensive, direct pushes not allowed by repo rulesets
+      - dev   # same as above
+      - "feature/**"  # to be discussed - should pushes to feature/fix run CI, on should PRs into main/dev run it?
+      - "fix/**"
   pull_request:
-    branches: [main, dev]
+    branches:
+      - main
+      - dev
+      - "feature/**"  # to be discussed - should CI run on PRs into feature/fix branches?
+      - "fix/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
