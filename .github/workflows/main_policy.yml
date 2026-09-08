@@ -8,7 +8,7 @@ jobs:
   require-dev-source:
     runs-on: ubuntu-latest
     steps:
-      - name: Check source branch
+      - name: Require source branch to be dev
         run: |
             if [ "${{ github.head_ref }}" != "dev" ]; then
                 echo "Pull requests into main must come from dev."
