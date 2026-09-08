@@ -1,4 +1,4 @@
-name: Dev Branch Pull Request Policy
+name: Dev PR policy
 
 on:
   pull_request:

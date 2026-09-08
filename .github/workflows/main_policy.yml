@@ -1,4 +1,4 @@
-name: Main Branch Pull Request Policy
+name: Main PR policy
 
 on:
   pull_request:
