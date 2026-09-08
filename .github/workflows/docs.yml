@@ -1,10 +1,8 @@
 name: Docs
 
 on:
-  push:
-    branches: [main]
   pull_request:
-    branches: [main]
+    branches: [dev, main]
 
 permissions:
   contents: read
@@ -20,7 +18,7 @@ concurrency:
 # 2. Source: GitHub Actions  (NOT "Deploy from a branch")
 
 jobs:
-  build:
+  build-docs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -43,8 +41,8 @@ jobs:
         with:
           path: site/
 
-  deploy:
-    needs: build
+  deploy-docs:
+    needs: build-docs
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
