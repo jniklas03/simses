@@ -1,0 +1,14 @@
+name: Main Branch Policy
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  require-dev-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        run: |
+          echo "Base branch: ${{ github.base_ref }}"
+          echo "Source branch: ${{ github.head_ref }}"
