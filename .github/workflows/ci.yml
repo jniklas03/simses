@@ -3,8 +3,6 @@ name: CI
 on:
   push:
     branches:
-      - main  # defensive, direct pushes not allowed by repo rulesets
-      - dev   # same as above
       - "feature/**"  # to be discussed - should pushes to feature/fix run CI, on should PRs into main/dev run it?
       - "fix/**"
   pull_request:
