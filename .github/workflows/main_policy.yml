@@ -1,4 +1,4 @@
-name: Main Branch Policy
+name: Main Branch Pull Request Policy
 
 on:
   pull_request:
@@ -10,5 +10,8 @@ jobs:
     steps:
       - name: Check source branch
         run: |
-          echo "Base branch: ${{ github.base_ref }}"
-          echo "Source branch: ${{ github.head_ref }}"
+            if [ "${{ github.head_ref }}" != "dev" ]; then
+                echo "Pull requests into main must come from dev."
+                echo "Actual source branch: ${{ github.head_ref }}"
+                exit 1
+            fi
